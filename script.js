@@ -97,15 +97,15 @@ function whoWin (player, computer) {
 let jogada = [player, computer]
 if(computer === player) {
     showResult('EMPATE')
-    return resultado.innerHTML = 'EMPATE'
+    return result.innerHTML = 'EMPATE'
 }
    for(let i = 0; i < combinacoesGanhadoraJogador.length; i++) {
        if(combinacoesGanhadoraJogador[i][0] === jogada[0] && combinacoesGanhadoraJogador[i][1] === jogada[1]){
         showResult('JOGADOR GANHOU')
-          return resultado.innerHTML = 'JOGADOR GANHOU'
+          return result.innerHTML = 'JOGADOR GANHOU'
        }else if(combinacoesGanhadoraComputer[i][0] === jogada[0] && combinacoesGanhadoraComputer[i][1] === jogada[1]){
         showResult('COMPUTADOR GANHOU')
-            return resultado.innerHTML = 'COMPUTADOR GANHOU'
+          return result.innerHTML = 'COMPUTADOR GANHOU'
        }
 }
 
