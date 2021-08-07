@@ -120,3 +120,14 @@ reset.addEventListener('click', function(){
     })
 
     
+
+
+    // <!-- <div id="discOne"></div>
+    // <div id="discTwo"></div>
+    // <div id="discThree"></div>
+    // <div id="discFour"></div> -->
+
+
+    // <!-- <div id="barOne"></div>
+    // <div id="barTwo"></div>
+    // <div id="barThree"></div> -->
