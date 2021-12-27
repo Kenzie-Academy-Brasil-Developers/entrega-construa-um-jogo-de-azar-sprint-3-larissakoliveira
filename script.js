@@ -1,75 +1,75 @@
-const pedra = document.getElementById('pedra')
-const papel = document.getElementById('papel')
-const tesoura = document.getElementById('tesoura')
-const jogar = document.getElementById('jogar')
+const rock = document.getElementById('rock')
+const paper = document.getElementById('paper')
+const scissor = document.getElementById('scissor')
+const play = document.getElementById('play')
 const reset = document.getElementById('reset')
-const sectionEscolhas = document.getElementById('escolhas')
-let divJogador = document.createElement('div')
-divJogador.classList.add('playerchoice')
-let divComputador = document.createElement('div')
-divComputador.classList.add('computerchoice')
-let divResultado = document.createElement('div')
-divResultado.classList.add('result')
-let imagePlayer = document.createElement('img')
-let imageComputer= document.createElement('img')
+const chooseSection = document.getElementById('choices')
+let playerDiv = document.createElement('div')
+playerDiv.classList.add('playerchoice')
+let computerDiv = document.createElement('div')
+computerDiv.classList.add('computerchoice')
+let resultDiv = document.createElement('div')
+resultDiv.classList.add('result')
+let playerImage = document.createElement('img')
+let computerImage = document.createElement('img')
 let result = document.createElement('h2')
 
 let player = null
 let computer = null   
 
 
-pedra.addEventListener('click', function(){
-    imagePlayer.src = "pedra.png"
-    player = 'pedra'
-    showImageJogador("pedra.png")
+rock.addEventListener('click', function(){
+    playerImage.src = "rock.png"
+    player = 'rock'
+    showImageJogador("rock.png")
 })
 
-papel.addEventListener('click', function(){
-    imagePlayer.src = "papel.png"
-    player = 'papel'
-    showImageJogador("papel.png")
+paper.addEventListener('click', function(){
+    playerImage.src = "paper.png"
+    player = 'paper'
+    showImageJogador("paper.png")
 })
 
-tesoura.addEventListener('click', function(){
-    imagePlayer.src = "tesoura.png"
-    player = 'tesoura'
-    showImageJogador("tesoura.png")
+scissor.addEventListener('click', function(){
+    playerImage.src = "scissor.png"
+    player = 'scissor'
+    showImageJogador("scissor.png")
 })
 
 
 
 function showImageJogador(image) {
-    imagePlayer.src = image
-    divJogador.appendChild(imagePlayer)
-    return sectionEscolhas.appendChild(divJogador)
+    playerImage.src = image
+    playerDiv.appendChild(playerImage)
+    return chooseSection.appendChild(playerDiv)
 }
 
-function showImageComputador(image) {
-    imageComputer.src = image
-    divComputador.appendChild(imageComputer)
-    return sectionEscolhas.appendChild(divComputador)
+function showComputerImage(image) {
+    computerImage.src = image
+    computerDiv.appendChild(computerImage )
+    return chooseSection.appendChild(computerDiv)
 }
 
 function showResult(resultado){
     result.innerHTML = resultado
-    divResultado.appendChild(result)
-    return sectionEscolhas.appendChild(divResultado)
+    resultDiv.appendChild(result)
+    return chooseSection.appendChild(resultDiv)
 }
 
-jogar.addEventListener('click', function(){  
+play.addEventListener('click', function(){  
     let randomNum = getRandomIntInclusive()
 
     if(randomNum===1) {
-    imageComputer.src = "pedra.png"
-    computer = 'pedra'
+    computerImage.src = "rock.png"
+    computer = 'rock'
     }else if(randomNum===2) {
-    imageComputer.src = "papel.png"
-    computer = 'papel'
+    computerImage.src = "paper.png"
+    computer = 'paper'
     }else if(randomNum===3) {
-    imageComputer.src = "tesoura.png"
-    computer = 'tesoura'
+    computerImage.src = "scissor.png"
+    computer = 'scissor'
     }
-    showImageComputador(imageComputer.src) 
+    showComputerImage(computerImage.src) 
     whoWin(player, computer)  
 })
 
@@ -81,29 +81,29 @@ function getRandomIntInclusive() {
 
 
 
-let combinacoesGanhadoraJogador = [
-    ['pedra', 'tesoura'],  
-    ['papel', 'pedra'],  
-    ['tesoura', 'papel']
+let playerWinningCombinations = [
+    ['rock', 'scissor'],  
+    ['paper', 'rock'],  
+    ['scissor', 'paper']
 ]
 
-let combinacoesGanhadoraComputer = [
-    ['tesoura', 'pedra'],  
-    ['pedra', 'papel'],  
-    ['papel', 'tesoura']
+let computerWinningCombinations = [
+    ['scissor', 'rock'],  
+    ['rock', 'paper'],  
+    ['paper', 'scissor']
 ]
 
 function whoWin (player, computer) {
-let jogada = [player, computer]
+let play = [player, computer]
 if(computer === player) {
     showResult('EMPATE')
     return result.innerHTML = 'EMPATE'
 }
-   for(let i = 0; i < combinacoesGanhadoraJogador.length; i++) {
-       if(combinacoesGanhadoraJogador[i][0] === jogada[0] && combinacoesGanhadoraJogador[i][1] === jogada[1]){
+   for(let i = 0; i < playerWinningCombinations.length; i++) {
+       if(playerWinningCombinations[i][0] === play[0] && playerWinningCombinations[i][1] === play[1]){
         showResult('JOGADOR GANHOU')
           return result.innerHTML = 'JOGADOR GANHOU'
-       }else if(combinacoesGanhadoraComputer[i][0] === jogada[0] && combinacoesGanhadoraComputer[i][1] === jogada[1]){
+       }else if(computerWinningCombinations[i][0] === play[0] && computerWinningCombinations[i][1] === play[1]){
         showResult('COMPUTADOR GANHOU')
           return result.innerHTML = 'COMPUTADOR GANHOU'
        }
@@ -114,20 +114,7 @@ if(computer === player) {
 
 
 reset.addEventListener('click', function(){
-    divResultado.innerHTML = '';
-    divJogador.innerHTML = '';
-    divComputador.innerHTML = '';
+    resultDiv.innerHTML = '';
+    playerDiv.innerHTML = '';
+    computerDiv.innerHTML = '';
     })
-
-    
-
-
-    // <!-- <div id="discOne"></div>
-    // <div id="discTwo"></div>
-    // <div id="discThree"></div>
-    // <div id="discFour"></div> -->
-
-
-    // <!-- <div id="barOne"></div>
-    // <div id="barTwo"></div>
-    // <div id="barThree"></div> -->

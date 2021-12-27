@@ -33,7 +33,7 @@ button {
     border-color: black;
 }
 
-#jogar{
+#play{
     margin-right: 10px;
 }
 #reset{
@@ -45,7 +45,7 @@ body {
     height: 100vh;
 }
 
-#titulos, #escolhas{
+#titles, #choices{
     display: flex;
     justify-content: space-around;
 }
