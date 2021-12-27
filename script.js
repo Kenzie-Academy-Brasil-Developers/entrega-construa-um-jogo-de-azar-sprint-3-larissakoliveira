@@ -19,21 +19,21 @@ let computer = null
 
 
 rock.addEventListener('click', function(){
-    playerImage.src = "rock.png"
+    playerImage.src = "rock.gif"
     player = 'rock'
-    showImageJogador("rock.png")
+    showImageJogador("rock.gif")
 })
 
 paper.addEventListener('click', function(){
-    playerImage.src = "paper.png"
+    playerImage.src = "paper.gif"
     player = 'paper'
-    showImageJogador("paper.png")
+    showImageJogador("paper.gif")
 })
 
 scissor.addEventListener('click', function(){
-    playerImage.src = "scissor.png"
+    playerImage.src = "scissor.gif"
     player = 'scissor'
-    showImageJogador("scissor.png")
+    showImageJogador("scissor.gif")
 })
 
 
@@ -60,13 +60,13 @@ play.addEventListener('click', function(){
     let randomNum = getRandomIntInclusive()
 
     if(randomNum===1) {
-    computerImage.src = "rock.png"
+    computerImage.src = "rock.gif"
     computer = 'rock'
     }else if(randomNum===2) {
-    computerImage.src = "paper.png"
+    computerImage.src = "paper.gif"
     computer = 'paper'
     }else if(randomNum===3) {
-    computerImage.src = "scissor.png"
+    computerImage.src = "scissor.gif"
     computer = 'scissor'
     }
     showComputerImage(computerImage.src) 
